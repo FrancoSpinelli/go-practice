@@ -1,11 +1,12 @@
 package invoiceitem
 
-type invoiceitem struct {
-	country string
-	city    string
-	total   float64
+type Item struct {
+	id      uint
+	product string
+	value   float64
 }
 
-func New(country, city string, total float64) invoiceitem {
-	return invoiceitem{country, city, total}
+// New returns a new Item
+func New(id uint, product string, value float64) Item {
+	return Item{id, product, value}
 }
