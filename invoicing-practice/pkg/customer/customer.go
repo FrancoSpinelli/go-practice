@@ -1,5 +1,6 @@
 package customer
 
+// Customer is the structure of Customer
 type Customer struct {
 	name    string
 	address string
