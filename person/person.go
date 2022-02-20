@@ -12,7 +12,7 @@ type person struct {
 }
 
 // New constructor to person
-func New(firstName, lastname string, age uint8, adult bool) *person {
+func NewPerson(firstName, lastname string, age uint8, adult bool) *person {
 	if age == 0 {
 		age = 99
 	}
@@ -38,5 +38,18 @@ func (p *person) Adult() string       { return p.firstName }
 
 // Greet to person
 func (p *person) Greet() {
-	fmt.Printf("Welcome back %s %s", p.firstName, p.lastName)
+	fmt.Printf("Welcome back %s %s \n", p.firstName, p.lastName)
+}
+
+type Employee struct {
+	person
+	salary float64
+}
+
+func NewEmployed(firstName, lastname string, age uint8, adult bool, salary float64) Employee {
+	return Employee{*NewPerson(firstName, lastname, age, adult), salary}
+}
+
+func (e Employee) Payroll() {
+	fmt.Println(e.salary * 0.9)
 }
