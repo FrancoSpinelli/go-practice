@@ -7,9 +7,10 @@ import (
 )
 
 func main() {
-	franco := person.NewEmployed("Franco", "Spinelli", 23, true, 100000)
+	franco := person.NewEmployed("Franco", "Spinelli", 23, true, 2, 100000)
 	fmt.Printf("%+v \n", franco)
 	fmt.Printf("%T \n", franco)
-	franco.Greet()
+	franco.Person.Greet()
+	franco.Human.Greet()
 	franco.Payroll()
 }
