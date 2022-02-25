@@ -1,16 +1,34 @@
 package main
 
-import (
-	"fmt"
+import "fmt"
 
-	"github.com/FrancoSpinelli/go-practice/person"
-)
+type Person struct {
+	name string
+}
+
+func NewPerson(name string) *Person {
+	return &Person{name}
+}
+
+func (p *Person) Get() string {
+	return p.name
+}
+
+func (p *Person) Set(name string) {
+	p.name = name
+}
+
+type Storager interface {
+	Get() string
+	Set(string)
+}
+
+func exce(s Storager, name string) {
+	s.Set(name)
+	fmt.Println(s.Get())
+}
 
 func main() {
-	franco := person.NewEmployed("Franco", "Spinelli", 23, true, 2, 100000)
-	fmt.Printf("%+v \n", franco)
-	fmt.Printf("%T \n", franco)
-	franco.Person.Greet()
-	franco.Human.Greet()
-	franco.Payroll()
+	p := NewPerson("Franco")
+	exce(p, "Lucas")
 }
