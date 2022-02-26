@@ -11,3 +11,13 @@ type Model struct {
 	CreatedAt    time.Time
 	UpdatedAt    time.Time
 }
+
+// Models slice of Model
+type Models []*Model
+type Storage interface {
+	Create(*Model) error
+	Update(*Model) error
+	GetAll() (Models, error)
+	GetByPk(uint) (*Model, error)
+	Delete(uint) error
+}
