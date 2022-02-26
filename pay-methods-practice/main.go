@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/FrancoSpinelli/go-practice/pay-methods/pkg/methods"
+	"github.com/FrancoSpinelli/go-practice/pay-methods-practice/pkg/methods"
 )
 
 func main() {
